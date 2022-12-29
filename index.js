@@ -2,7 +2,7 @@
 
 document.addEventListener("DOMContentLoaded", function(event) {
   document.getElementById("date").innerHTML = dateGenerator();
-  document.getElementById("todolist").addEventListener("click", newList);
+  document.getElementById("todolist").addEventListener("click", inputArea);
 
     function displayDate() {
       document.getElementById("demo").innerHTML = Date();
@@ -17,7 +17,17 @@ function newList() {
   } else {
     textarea.style.display = 'none';
   }
-};
+}
+function inputArea() {
+  //const inputText = document.getElementById('inputText');
+  if (input-text.style.display === 'none') {
+    inputText.style.display = 'block';
+  }else {
+    inputText.style.display = 'none';
+  }
+}
+
+
 //ketika pencet createnewlist, 
 //akan kebuat element text area baru, 
 // text area mencet submit
