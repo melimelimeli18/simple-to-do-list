@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="myForm">
+        <input type="text" id="myInput" placeholder="Make a new goal">
+      </form>
+      
+      <div id="goalList"></div>
+
+      <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+  // Prevent the default form submission behavior
+  event.preventDefault();
+
+  // Get the value of the input field
+  var inputValue = document.getElementById("myInput").value;
+
+  // Clear the input field
+  document.getElementById("myInput").value = "";
+
+  // Create a new div element for the goal
+  var goalDiv = document.createElement("div");
+  goalDiv.classList.add("goal");
+
+  // Create a checkbox element for the goal
+  var checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.classList.add("checkbox");
+
+  // Add the checkbox and input value to the goal div
+  goalDiv.appendChild(checkbox);
+  goalDiv.appendChild(document.createTextNode(inputValue));
+
+  // Add the goal div to the goal list
+  document.getElementById("goalList").appendChild(goalDiv);
+
+  // Add an event listener to the checkbox to toggle the checked state
+  checkbox.addEventListener("change", function() {
+    if (checkbox.checked) {
+      checkbox.classList.add("checked");
+    } else {
+      checkbox.classList.remove("checked");
+    }
+  });
+});
+
+      </script>
+</body>
+</html>
