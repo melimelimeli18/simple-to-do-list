@@ -5,6 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+      input[type="checkbox"]{
+        -webkit-appearance: none;  
+      }
+      input[type="checkbox"]::before {
+        content: url("icon-svg/icon_unchecked.svg");
+      }
+      input[type="checkbox"]:checked {
+          content: url("icon-svg/icon_checkedd.svg");
+      }
+
+    
+    </style>
 </head>
 <body>
     <form id="myForm">
@@ -40,14 +53,7 @@
   // Add the goal div to the goal list
   document.getElementById("goalList").appendChild(goalDiv);
 
-  // Add an event listener to the checkbox to toggle the checked state
-  checkbox.addEventListener("change", function() {
-    if (checkbox.checked) {
-      checkbox.classList.add("checked");
-    } else {
-      checkbox.classList.remove("checked");
-    }
-  });
+
 });
 
       </script>

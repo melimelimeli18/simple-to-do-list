@@ -1,0 +1,79 @@
+<html lang=en>
+  
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio"></script>
+    <style>
+        ul.checkboxes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 1em;
+}
+
+ul.checkboxes li {
+  list-style: none;
+  margin: 1px;
+  padding: 0;
+}
+
+[role="checkbox"] {
+  display: inline-block;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+[role="checkbox"]::before {
+  position: relative;
+  top: 1px;
+  left: -4px;
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16' style='forced-color-adjust: auto;'%3E%3Crect x='2' y='2' height='13' width='13' rx='2' stroke='currentcolor' stroke-width='1' fill-opacity='0' /%3E%3C/svg%3E");
+}z
+
+[role="checkbox"][aria-checked="true"]::before {
+  position: relative;
+  top: 1px;
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16' style='forced-color-adjust: auto;'%3E%3Crect x='2' y='2' height='13' width='13' rx='2' stroke='currentcolor' stroke-width='1' fill-opacity='0' /%3E%3Cpolyline points='4,8 7,12 12,5' fill='none' stroke='currentcolor' stroke-width='2' /%3E%3C/svg%3E");
+}
+
+[role="checkbox"]:focus,
+[role="checkbox"]:hover {
+  padding: 2px 6px;
+  border: 2px solid #005a9c;
+  border-radius: 5px;
+  background-color: #def;
+}
+
+[role="checkbox"]:hover {
+  cursor: pointer;
+}
+
+    </style>
+</head>
+<body class=>
+  <h3 id="id-group-label">Sandwich Condiments<span id=demoDate></span></h3>
+
+<div  class="flex px-8 pt-8">
+  <p id="create" class="cursor-pointer text-[1rem] text-[#A0A0A0]">create new things</p>  
+</div>
+  
+<form id="myForm" class=" px-8 pt-3">
+  <input type="text" id="myInput" class=""placeholder=""></form>
+
+<div id="TheWholeList" role="group" aria-labelledby="id-group-label">
+  
+  <ul id="ParentList">
+    <li><div role="checkbox" aria-checked="false" tabindex="0">Lettuce</div></li>
+    
+    
+  </ul>
+</div>
+  </body>
+</html>
+
+      

@@ -9,6 +9,16 @@ html {
     padding-top: 0.4rem;
 }
 
-.checkbox{
+#checkbox{
     padding-right: 0.7rem; /* 8px */
 }
+
+#checkbox[data-checked="true"]:before {
+    background-image:icon-svg/icon_checkedd.svg;
+}
+    
+#checkboxSVG[data-checked="false"] {
+    background-image:icon-svg/icon_unchecked.svg;
+}
+
+/* bagaimana kalo gw bikin checkboxnya di html tapi di hidden, dan dimunculin pas ditambahin doang, dan pake function yang sama ama InputArea(). dan bikin toggle dari svg custom itu */
