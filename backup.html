@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+      *{margin: 0px; padding: 0px;}
       input[type="checkbox"]{
         -webkit-appearance: none;  
       }
@@ -14,9 +15,17 @@
       }
       input[type="checkbox"]:checked {
           content: url("icon-svg/icon_checkedd.svg");
+          /* animation: tick 150ms ease-in; */
       }
-
-    
+      .checkbox {
+        margin-right :0.7rem;
+      }
+      .goalDiv {
+        display : flex;
+        padding-left: 2rem; /* 32px */
+        padding-right: 2rem; /* 32px */
+        padding-top: 0.4rem;
+      }
     </style>
 </head>
 <body>
@@ -28,33 +37,31 @@
 
       <script>
         document.getElementById("myForm").addEventListener("submit", function(event) {
-  // Prevent the default form submission behavior
-  event.preventDefault();
+        // Prevent the default form submission behavior
+        event.preventDefault();
 
-  // Get the value of the input field
-  var inputValue = document.getElementById("myInput").value;
+        // Get the value of the input field
+        var inputValue = document.getElementById("myInput").value;
 
-  // Clear the input field
-  document.getElementById("myInput").value = "";
+        // Clear the input field
+        document.getElementById("myInput").value = "";
 
-  // Create a new div element for the goal
-  var goalDiv = document.createElement("div");
-  goalDiv.classList.add("goal");
+        // Create a new div element for the goal
+        var goalDiv = document.createElement("div");
+        goalDiv.classList.add("goal");
 
-  // Create a checkbox element for the goal
-  var checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.classList.add("checkbox");
+        // Create a checkbox element for the goal
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.classList.add("checkbox");
 
-  // Add the checkbox and input value to the goal div
-  goalDiv.appendChild(checkbox);
-  goalDiv.appendChild(document.createTextNode(inputValue));
+        // Add the checkbox and input value to the goal div
+        goalDiv.appendChild(checkbox);
+        goalDiv.appendChild(document.createTextNode(inputValue));
 
-  // Add the goal div to the goal list
-  document.getElementById("goalList").appendChild(goalDiv);
-
-
-});
+        // Add the goal div to the goal list
+        document.getElementById("goalList").appendChild(goalDiv);
+      });
 
       </script>
 </body>

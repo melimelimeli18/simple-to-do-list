@@ -1,79 +1,145 @@
-<html lang=en>
-  
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <!-- <script src="index.js"></script> -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio">
+    </script>
 
-    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio"></script>
-    <style>
-        ul.checkboxes {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding-left: 1em;
-}
+    <script>
+        tailwind.config = {
+          theme: {
+            textColors: {
+                //this can be custom, up to yourself
+                white: "#fff",
+                black: "#000"
+                },
+            extend: {
+                spacing: {
+                    '8xl': '96rem',
+                    '9xl': '128rem',
+                }
+              },
+            }
+          }
+      </script>
 
-ul.checkboxes li {
-  list-style: none;
-  margin: 1px;
-  padding: 0;
-}
+      <style>
+        *{margin: 0px; padding: 0px;}
+        input[type="checkbox"]{
+            -webkit-appearance: none;  
+          }
+          /* unchecked */
+          input[type="checkbox"]::before {
+            content: url("../icon-svg/icon_unchecked.svg");
+            
+          }
+          input[type="checkbox"]:checked {
+              content: url("../icon-svg/icon_checkedd.svg");
+              /* box-sizing: border-box; */
+              /* animation: tick 150ms ease-in; */
+          }
+          #checkbox{
+              padding-right: 0.7rem; /* 8px */
+              padding-left: 2rem; /* 8px */
+          }
+          .goal {
+              display: flex;
+              align-items: center;
+              padding-top: 0.2rem;
+              
+          }
+          
+      </style>
 
-[role="checkbox"] {
-  display: inline-block;
-  padding: 4px 8px;
-  cursor: pointer;
-}
-
-[role="checkbox"]::before {
-  position: relative;
-  top: 1px;
-  left: -4px;
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16' style='forced-color-adjust: auto;'%3E%3Crect x='2' y='2' height='13' width='13' rx='2' stroke='currentcolor' stroke-width='1' fill-opacity='0' /%3E%3C/svg%3E");
-}z
-
-[role="checkbox"][aria-checked="true"]::before {
-  position: relative;
-  top: 1px;
-  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='16' width='16' style='forced-color-adjust: auto;'%3E%3Crect x='2' y='2' height='13' width='13' rx='2' stroke='currentcolor' stroke-width='1' fill-opacity='0' /%3E%3Cpolyline points='4,8 7,12 12,5' fill='none' stroke='currentcolor' stroke-width='2' /%3E%3C/svg%3E");
-}
-
-[role="checkbox"]:focus,
-[role="checkbox"]:hover {
-  padding: 2px 6px;
-  border: 2px solid #005a9c;
-  border-radius: 5px;
-  background-color: #def;
-}
-
-[role="checkbox"]:hover {
-  cursor: pointer;
-}
-
-    </style>
 </head>
-<body class=>
-  <h3 id="id-group-label">Sandwich Condiments<span id=demoDate></span></h3>
-
-<div  class="flex px-8 pt-8">
-  <p id="create" class="cursor-pointer text-[1rem] text-[#A0A0A0]">create new things</p>  
-</div>
-  
-<form id="myForm" class=" px-8 pt-3">
-  <input type="text" id="myInput" class=""placeholder=""></form>
-
-<div id="TheWholeList" role="group" aria-labelledby="id-group-label">
-  
-  <ul id="ParentList">
-    <li><div role="checkbox" aria-checked="false" tabindex="0">Lettuce</div></li>
+<body class="bg-[#333333] px-14 py-16 ">
+        <div class="bagian-atas flex justify-between">
+            <div class="header text-3xl font-semibold text-white">
+                <p class="text-white">Things to do in <span id="date" class="underline decoration-solid"></span></p>
+            </div>
     
-    
-  </ul>
-</div>
-  </body>
-</html>
+            <div class="button">
+                <div class="delete-button text-[1rem]  text-white bg-[#FD5252] px-9 py-1 rounded-full item-end align-bottom">
+                    <p class="item-center">delete</p>     
+                </div>
+            </div>
+        </div>
+        
+        <div id="todolist" class="bg-[#ffffff] my-12 rounded-lg h-[80vw] ">
+          <div id="create" class="flex px-8 pt-8">
+            <img src="../icon-svg/icon_plus_.svg" class="h-6 w-6 align-middle item-center pr-2">
+            <p class="cursor-pointer text-[1rem] text-[#A0A0A0]">Create New List To Do</p>  
+          </div>
 
+
+          <form id="myForm" class=" px-8 pt-3">
+            <input type="text" id="myInput" class="" placeholder="Type Text Here">
+          </form>
+          
+          <div id="goalList" class="mh-[8px] pt-3 box-border"></div>
+        </div>
       
+
+        <script>
+          document.getElementById("date").innerHTML = dateGenerator(); //date generator
+          document.getElementById("todolist").addEventListener("click",inputArea ); //this function wont affect anything in browser
+
+          document.getElementById("myForm").addEventListener("submit", function (event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+          
+            // Get the value of the input field
+            var inputValue = document.getElementById("myInput").value;
+          
+            // Clear the input field
+            document.getElementById("myInput").value = "";
+          
+            // Create a new div element for the goal
+            var goalDiv = document.createElement("div");
+            goalDiv.classList.add("goal");
+          
+            // Create a checkbox element for the goal
+            var checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            //checkbox.classList.add("checkbox");
+            checkbox.id = "checkbox";
+          
+            // Add the checkbox and input value to the goal div
+            goalDiv.appendChild(checkbox);
+            goalDiv.appendChild(document.createTextNode(inputValue));
+          
+            // Add the goal div to the goal list
+            document.getElementById("goalList").appendChild(goalDiv);
+          });
+
+          function inputArea() {
+          //const inputText = document.getElementById('inputText');
+          if (inputText.style.display === 'block') {
+            inputText.style.display = 'none';
+          }else {
+            inputText.style.display = 'block';
+          }
+          document.getElementById("inputText").focus();
+        }
+
+          const date = document.getElementById("#date");
+          function dateGenerator() {
+            const dateNow = new Date();
+            const dateString = dateNow.toLocaleDateString("en-US", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            });
+            return dateString;
+          };
+        </script>
+</body>
+</html>
