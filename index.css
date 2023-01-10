@@ -1,24 +1,26 @@
-* {margin: 0px; padding: 0; outline: none;} 
-html {
-    font-size:16px;
+*{margin: 0px; padding: 0px;}
+html { 
+    font-size: 16px;
 }
-.goalDiv {
-    display : flex;
-    padding-left: 2rem; /* 32px */
-    padding-right: 2rem; /* 32px */
-    padding-top: 0.4rem;
-}
+input[type="checkbox"]{
+    -webkit-appearance: none;  
+    }
+/* unchecked */
+input[type="checkbox"]::before {
+    content: url("../icon-svg/icon_unchecked.svg");
 
+}
+input[type="checkbox"]:checked {
+    content: url("../icon-svg/icon_checkedd.svg");
+}
 #checkbox{
     padding-right: 0.7rem; /* 8px */
+    padding-left: 2rem; /* 8px */
 }
-
-#checkbox[data-checked="true"]:before {
-    background-image:icon-svg/icon_checkedd.svg;
+.goal {
+    /* display: table; */
+    /* align-self: center; */
+    /* align-items: center; */
+    padding-top: 0.2rem;
+    vertical-align: middle;
 }
-    
-#checkboxSVG[data-checked="false"] {
-    background-image:icon-svg/icon_unchecked.svg;
-}
-
-/* bagaimana kalo gw bikin checkboxnya di html tapi di hidden, dan dimunculin pas ditambahin doang, dan pake function yang sama ama InputArea(). dan bikin toggle dari svg custom itu */
