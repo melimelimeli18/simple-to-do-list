@@ -23,17 +23,17 @@ function submit(event) {
   event.preventDefault();
 
   // Get the value of the input field
-  var inputValue = document.getElementById("myInput").value;
+  const inputValue = document.getElementById("myInput").value;
 
   // Clear the input field
   document.getElementById("myInput").value = "";
 
   // Create a new div element for the goal
-  var goalDiv = document.createElement("div");
+  const goalDiv = document.createElement("div");
   goalDiv.classList.add("goal");
 
   // Create a checkbox element for the goal
-  var checkbox = document.createElement("input");
+  const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   //checkbox.classList.add("checkbox");
   checkbox.id = "checkbox";

@@ -7,11 +7,12 @@ input[type="checkbox"]{
     }
 /* unchecked */
 input[type="checkbox"]::before {
-    content: url("../icon-svg/icon_unchecked.svg");
+    content: url("icon-svg/icon_unchecked.svg");
 
 }
 input[type="checkbox"]:checked {
     content: url("../icon-svg/icon_checkedd.svg");
+    
 }
 #checkbox{
     padding-right: 0.7rem; /* 8px */
