@@ -10,8 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <script src="test.js"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio">
-    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio"></script>
+    
+    
 
     <script>
         tailwind.config = {
@@ -55,20 +56,24 @@
               padding-left: 2rem; /* 8px */
               
           }
-          #inputValue {
-            
+          .inputValue {
+            vertical-align: middle;
           }
+
           #checkbox ::before {
           
           }
           .goal {
               margin: 0px;
               overflow: hidden;
-              transition: height
+              transition: height;
+          }
+          #goalList {
+            margin-top: 1rem;
           }
           #goalList :only-child{
             /* height: 30.375px; */
-            vertical-align: middle;
+            /* vertical-align: middle; */
           }
       </style>
 

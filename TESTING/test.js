@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   outerDateGenerator(); //Success
   outerInputArea(); // toggle success
   //outerSubmit();
-  outerSubmit () //when i submited, the function be reset, idk why
+  outerSubmit(); // function success
 });
 
 
@@ -19,7 +19,6 @@ function outerDateGenerator (){
     return dateString;
   })();
 }  
-//     myForm.addEventListener("submit", submit)
 
 function outerInputArea(){
   const createBtn = document.getElementById("createBtn");
@@ -31,22 +30,30 @@ function outerInputArea(){
       } else {
         myForm.style.display = "none";
       }
-    })(); 
+    }); 
 }
   
 function outerSubmit (){
-  const myForm = document.getElementById("myForm");
-  myForm.addEventListener("submit", function(event){
+  const form = document.getElementById("myForm");
+  form.addEventListener("submit", function(event){
+    
     event.preventDefault();
     
     //checkbox - child 1
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.id = "checkbox"; //styling purpose
-
+    
     //text - child 2
     const inputValue = document.getElementById("myInput").value;
+    //inputValue.classList.add("inputValue");
     document.getElementById("myInput").value = "";
+    
+    
+
+    if (inputValue === "") {
+          return;
+        }
 
     //parent
     const goalDiv = document.createElement("div");
@@ -56,7 +63,8 @@ function outerSubmit (){
     goalDiv.appendChild(checkbox);
     goalDiv.appendChild(document.createTextNode(inputValue));
 
-    document.getElementById("goalList").appendChild(goalDiv);
+    const eachList = document.getElementById("goalList");
+    eachList.appendChild(goalDiv);
   });
 }
 
