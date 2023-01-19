@@ -57,7 +57,57 @@ addButton.addEventListener('click', () => {
         const parent = deleteButton.parentElement;
         parent.parentElement.removeChild(parent);
     });
-    
+
     textInputField.value = "";
 
 });
+
+<htmL>
+
+</htmL>
+
+return 
+<style>
+    
+#text-input-field {
+    width: 100%;
+    padding: 10px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+#add-button {
+    padding: 7px 9px;
+    border: none;
+    background-color: cyan;
+}
+
+.todos-container {
+    overflow-y: scroll;
+}
+
+.todo-item-container {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+#todo-text {
+    width: 100%;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    user-select: none;
+}
+
+.line-through {
+    text-decoration: line-through;
+    color: blue;
+}
+
+#edit-button,
+#delete-button {
+    padding: 5px;
+    border: none;
+    background-color: transparent;
+}
+</style>

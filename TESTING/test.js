@@ -52,6 +52,28 @@ function outerSubmit (){
     if (inputValue === "") {
           return;
         }
+    
+    
+
+    //edit button 
+    const editButton = document.createElement('button');
+    editButton.classList.add('editButton');
+    const editIcon = document.createElement('img');
+    editIcon.src = '../icon-svg/icon_edit.svg';
+    editButton.appendChild(editIcon);
+    
+    //delete button
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add ('deleteButton');
+    const deleteIcon = document.createElement('img');
+    deleteIcon.src = '../icon-svg/icon_delete.svg';
+    deleteButton.appendChild(deleteIcon);
+    
+    //edit button & delete button parent
+    const actionBtn = document.createElement('div');
+    actionBtn.classList.add('actionBtn');
+    actionBtn.appendChild(editButton);
+    actionBtn.appendChild(deleteButton);
 
     //parent
     const goalDiv = document.createElement("div");
@@ -60,6 +82,7 @@ function outerSubmit (){
     //appending child to parent
     goalDiv.appendChild(checkbox);
     goalDiv.appendChild(document.createTextNode(inputValue));
+    goalDiv.appendChild(actionBtn);
 
     const eachList = document.getElementById("goalList");
     eachList.appendChild(goalDiv);

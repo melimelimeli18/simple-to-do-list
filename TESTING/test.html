@@ -41,21 +41,6 @@
           font-size: 16px;
           
         }
-        @layer base {
-          :root {
-          --width: 7.4rem;
-          --height: 3.8rem;
-          --padding: 0.2rem;
-          --sides: calc(var(--padding) * 2);
-          --dial-dim: calc(var(--height) - var(--sides));
-          
-          /* Use dimensions to calculate how much our dial can translate */
-
-          --dial-translate: calc(var(--width) - var(--sides) - var(--dial-dim));
-          /* 	--dial-translate: 36px; */
-          /* translate = 74 - 4 - 34 = 36 => our dial moves 36px	 */
-          }
-        }
 
         body{
           font-family: 'Rubik', sans-serif;
@@ -66,62 +51,69 @@
           }
           /* unchecked */
           input[type="checkbox"]::before {
-
             content: url("../icon-svg/icon_unchecked.svg"); 
           }
+
           /* checked */
           input[type="checkbox"]:checked {
               content: url("../icon-svg/icon_checkedd.svg");
               margin-top:0.2rem;
               margin-bottom:0.2rem;
           }
-          .header{
-            font-weight: 500;
-          }
-          #checkbox{
-              padding-right: 0.7rem; /* 8px */
-              padding-left: 2rem; /* 8px */
-          }
-          .inputValue {
-            vertical-align: middle;
-          }
-
-          #checkbox ::before {
-          
-          }
-          .goal {
-              /* margin-botton:0.7rem; */
-              margin-top:0.5rem;
-              background: #FFFFFF;
-              border-radius: 0.5rem; /* 8px */
-              overflow: hidden;
-              transition: height;
-              padding-bottom: 0.5rem;
-              padding-top: 0.5rem;
-          }
-          #goalList {
-            margin-top: 1rem;
-            font-weight: 400;
-          }
-          #goalList :only-child{
-            /* height: 30.375px; */
-            vertical-align: middle;
-          }
-          #switch-toggle :focus {
-            outline: none;
-          }
-          #myInput {
-            -webkit-appearance: none;  
-            background: rgba(255, 255, 255, 0.37);
-            border: 3px solid #FFFFFF;
-            border-radius: 16px;
-            padding: 0.7rem;
-            
-          }
-          #myInput::placeholder {
-            color: #8A8A8A;
          
-          }
+        .header{
+          font-weight: 500;
+        }
+        #checkbox{
+            padding-right: 0.7rem; /* 8px */
+            padding-left: 2rem; /* 8px */
+        }
+        .inputValue {
+          vertical-align: middle;
+        }
+
+        .goal {
+            /* margin-botton:0.7rem; */
+            display: flex;
+            margin-top:0.5rem;
+            background: #FFFFFF;
+            border-radius: 0.5rem; /* 8px */
+            overflow: hidden;
+            transition: height;
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+            justify-content: space-between;
+        }
+        .editButton, .deleteButton {
+        /* -webkit-appearance: none;                  */
+        }
+        .actionBtn {
+          display :inherit;
+          //justify-content: flex-end;
+        }
+        #goalList {
+          margin-top: 1rem;
+          font-weight: 400;
+        }
+        #goalList :only-child{
+          /* height: 30.375px; */
+          vertical-align: middle;
+        }
+        #switch-toggle :focus {
+          outline: none;
+        }
+        #myInput {
+          -webkit-appearance: none;  
+          background: rgba(255, 255, 255, 0.37);
+          border: 3px solid #FFFFFF;
+          border-radius: 16px;
+          padding: 0.7rem;
+          
+        }
+        #myInput::placeholder {
+          color: #8A8A8A;
+        
+        }
       </style>
 
 </head>
@@ -151,7 +143,7 @@
           
     <!--layer 2  -->
     <div class="headline flex justify-between flex-col ">
-        <div class="header  text-white">
+        <div class="header  text-white cursor-pointer">
             <p class="text-white text-3xl font-semibold">Things to do in <span id="date" class="underline decoration-solid"><script>dateGenerator()</script></span></p>
         </div>
         <div>
