@@ -67,6 +67,7 @@
         #checkbox{
             padding-right: 0.7rem; /* 8px */
             padding-left: 2rem; /* 8px */
+            vertical-align: middle;
         }
         .inputValue {
           vertical-align: middle;
@@ -84,12 +85,13 @@
             padding-top: 0.5rem;
             justify-content: space-between;
         }
-        .editButton, .deleteButton {
-        /* -webkit-appearance: none;                  */
+        .editButton {
+          padding-right: 0.7rem;
         }
         .actionBtn {
           display :inherit;
-          //justify-content: flex-end;
+          padding-right: 2rem;
+          /* justify-content: flex-end; */
         }
         #goalList {
           margin-top: 1rem;
@@ -102,6 +104,7 @@
         #switch-toggle :focus {
           outline: none;
         }
+
         #myInput {
           -webkit-appearance: none;  
           background: rgba(255, 255, 255, 0.37);
@@ -112,7 +115,9 @@
         }
         #myInput::placeholder {
           color: #8A8A8A;
-        
+        }
+        #myInput:focus {
+          outline: none;
         }
       </style>
 
@@ -148,7 +153,7 @@
         </div>
         <div>
           <form id="myForm" class=" pt-[1rem] mb-[1rem]"style="">
-            <input type="text" id="myInput" class="w-[100%]" placeholder="type here and ENTER to add new list">
+            <input type="text" id="myInput" class="w-[100%]" placeholder="type here, ENTER to add new list">
           </form>
         </div>
     </div>

@@ -52,8 +52,6 @@ function outerSubmit (){
     if (inputValue === "") {
           return;
         }
-    
-    
 
     //edit button 
     const editButton = document.createElement('button');
@@ -74,14 +72,20 @@ function outerSubmit (){
     actionBtn.classList.add('actionBtn');
     actionBtn.appendChild(editButton);
     actionBtn.appendChild(deleteButton);
+    
+    // Input and checkbox one div
+    const theThings = document.createElement("div");
+    theThings.appendChild(checkbox);
+    theThings.appendChild(document.createTextNode(inputValue));
 
-    //parent
+    //parent (one list)
     const goalDiv = document.createElement("div");
     goalDiv.classList.add("goal");
 
     //appending child to parent
-    goalDiv.appendChild(checkbox);
-    goalDiv.appendChild(document.createTextNode(inputValue));
+    //goalDiv.appendChild(checkbox);
+    //goalDiv.appendChild(document.createTextNode(inputValue));
+    goalDiv.appendChild(theThings);
     goalDiv.appendChild(actionBtn);
 
     const eachList = document.getElementById("goalList");
