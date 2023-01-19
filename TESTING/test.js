@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
   outerDateGenerator(); //Success
-  outerInputArea(); // toggle success
+  //outerInputArea(); // toggle success
   //outerSubmit();
   outerSubmit(); // function success
 });
@@ -20,18 +20,18 @@ function outerDateGenerator (){
   })();
 }  
 
-function outerInputArea(){
-  const createBtn = document.getElementById("createBtn");
-  const myForm = document.getElementById("myForm");
+// function outerInputArea(){
+//   const createBtn = document.getElementById("createBtn");
+//   const myForm = document.getElementById("myForm");
 
-  createBtn.addEventListener("click", function() {
-      if (myForm.style.display === "none") {
-        myForm.style.display = "block";
-      } else {
-        myForm.style.display = "none";
-      }
-    }); 
-}
+//   createBtn.addEventListener("click", function() {
+//       if (myForm.style.display === "none") {
+//         myForm.style.display = "block";
+//       } else {
+//         myForm.style.display = "none";
+//       }
+//     }); 
+// }
   
 function outerSubmit (){
   const form = document.getElementById("myForm");
@@ -48,8 +48,6 @@ function outerSubmit (){
     const inputValue = document.getElementById("myInput").value;
     //inputValue.classList.add("inputValue");
     document.getElementById("myInput").value = "";
-    
-    
 
     if (inputValue === "") {
           return;

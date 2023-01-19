@@ -90,9 +90,14 @@
           
           }
           .goal {
-              margin: 0px;
+              /* margin-botton:0.7rem; */
+              margin-top:0.5rem;
+              background: #FFFFFF;
+              border-radius: 0.5rem; /* 8px */
               overflow: hidden;
               transition: height;
+              padding-bottom: 0.5rem;
+              padding-top: 0.5rem;
           }
           #goalList {
             margin-top: 1rem;
@@ -100,17 +105,30 @@
           }
           #goalList :only-child{
             /* height: 30.375px; */
-            /* vertical-align: middle; */
+            vertical-align: middle;
           }
           #switch-toggle :focus {
             outline: none;
+          }
+          #myInput {
+            -webkit-appearance: none;  
+            background: rgba(255, 255, 255, 0.37);
+            border: 3px solid #FFFFFF;
+            border-radius: 16px;
+            padding: 0.7rem;
+            
+          }
+          #myInput::placeholder {
+            color: #8A8A8A;
+         
           }
       </style>
 
 </head>
 <body class="bg-gradient-to-r from-[#A2B2D9] to-[#152859] px-10 py-16 ">
 
-    <div class="flex justify-between">
+    <!-- layer 1 -->
+    <div class="flex justify-between mb-[3rem]">
       <!-- top icon -->
         <div class="icon flex ">
           <img class="w-[1.5rem] h-[1.5rem] mr-[0.7rem]"src="../icon-svg/icon_history.svg" alt="">
@@ -131,82 +149,20 @@
         </div>
     </div>  
           
-        
-    <div class="headline flex justify-between">
-        <div class="header text-3xl font-semibold text-white">
-            <p class="text-white">Things to do in <span id="date" class="underline decoration-solid"><script>dateGenerator()</script></span></p>
+    <!--layer 2  -->
+    <div class="headline flex justify-between flex-col ">
+        <div class="header  text-white">
+            <p class="text-white text-3xl font-semibold">Things to do in <span id="date" class="underline decoration-solid"><script>dateGenerator()</script></span></p>
+        </div>
+        <div>
+          <form id="myForm" class=" pt-[1rem] mb-[1rem]"style="">
+            <input type="text" id="myInput" class="w-[100%]" placeholder="type here and ENTER to add new list">
+          </form>
         </div>
     </div>
-        
-    <div id="todolist" class="bg-white my-12 rounded-lg h-[95vw] overflow-scroll">
-      <div id="createBtn" class="flex px-8 pt-8">
-        <img src="../icon-svg/icon_plus_.svg" class="h-6 w-6 align-middle item-center pr-2">
-        <p class="cursor-pointer text-[1rem] text-[#A0A0A0]">Create New List To Do</p>  
-      </div>
-
-
-      <form id="myForm" class=" px-8 pt-3 "style="display: none;">
-        <input type="text" id="myInput" class="w-[100%]" placeholder="type here and ENTER to add new list">
-      </form>
-      
+    
+    <div id="todolist" class="bg-transparent overflow-y-auto">
       <div id="goalList" class="mh-[8px] "></div>
     </div>
-      
-
-        <!-- <script>
-          document.getElementById("date").innerHTML = dateGenerator(); //date generator
-          document.getElementById("todolist").addEventListener("click",inputArea ); //this function wont affect anything in browser
-
-          document.getElementById("myForm").addEventListener("submit",submit);
-
-          function submit(event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
-          
-            // Get the value of the input field
-            var inputValue = document.getElementById("myInput").value;
-          
-            // Clear the input field
-            document.getElementById("myInput").value = "";
-          
-            // Create a new div element for the goal
-            var goalDiv = document.createElement("div");
-            goalDiv.classList.add("goal");
-          
-            // Create a checkbox element for the goal
-            var checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            //checkbox.classList.add("checkbox");
-            checkbox.id = "checkbox";
-          
-            // Add the checkbox and input value to the goal div
-            goalDiv.appendChild(checkbox);
-            goalDiv.appendChild(document.createTextNode(inputValue));
-          
-            // Add the goal div to the goal list
-            document.getElementById("goalList").appendChild(goalDiv);
-          }
-
-          function inputArea() {
-          //const inputText = document.getElementById('inputText');
-          if (inputText.style.display === 'block') {
-            inputText.style.display = 'none';
-          }else {
-            inputText.style.display = 'block';
-          }
-          document.getElementById("inputText").focus();
-        }
-
-          const date = document.getElementById("#date");
-          function dateGenerator() {
-            const dateNow = new Date();
-            const dateString = dateNow.toLocaleDateString("en-US", {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            });
-            return dateString;
-          };
-        </script> -->
 </body>
 </html>

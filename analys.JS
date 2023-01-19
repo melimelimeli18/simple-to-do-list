@@ -45,6 +45,7 @@ addButton.addEventListener('click', () => {
     // create buton and add id = deleteButton
     const deleteButton = document.createElement('button');
     deleteButton.id = 'delete-button';
+
     // create img add it to delete-button
     const deleteImage = document.createElement('img');
     deleteImage.src = 'delete.svg';
@@ -56,8 +57,7 @@ addButton.addEventListener('click', () => {
         const parent = deleteButton.parentElement;
         parent.parentElement.removeChild(parent);
     });
-
-
+    
     textInputField.value = "";
 
 });
