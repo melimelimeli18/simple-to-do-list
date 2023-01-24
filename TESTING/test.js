@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 function outerDateGenerator (){
   const date = document.getElementById("date");
   
-  date.innerHTML =(function dateGenerator() {
+  date.innerText =(function dateGenerator() {
     const dateNow = new Date();
     const dateString = dateNow.toLocaleDateString("en-US", {
       day: "numeric",
@@ -19,19 +19,6 @@ function outerDateGenerator (){
     return dateString;
   })();
 }  
-
-// function outerInputArea(){
-//   const createBtn = document.getElementById("createBtn");
-//   const myForm = document.getElementById("myForm");
-
-//   createBtn.addEventListener("click", function() {
-//       if (myForm.style.display === "none") {
-//         myForm.style.display = "block";
-//       } else {
-//         myForm.style.display = "none";
-//       }
-//     }); 
-// }
   
 function outerSubmit (){
   const form = document.getElementById("myForm");
@@ -122,13 +109,3 @@ function submit(event) {
     document.getElementById("goalList").appendChild(goalDiv);
 }
   
-  
-  // function dateGenerator() {
-    // const dateNow = new Date();
-    // const dateString = dateNow.toLocaleDateString("en-US", {
-    //   day: "numeric",
-    //   month: "short",
-    //   year: "numeric",
-    // });
-    // return dateString;
-  // }
