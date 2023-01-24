@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 function outerDateGenerator (){
   const date = document.getElementById("date");
   
-  date.innerText =(function dateGenerator() {
+  date.textContent =(function dateGenerator() {
     const dateNow = new Date();
     const dateString = dateNow.toLocaleDateString("en-US", {
       day: "numeric",
@@ -33,12 +33,17 @@ function outerSubmit (){
     checkbox.id = "checkbox"; //styling purpose
     
     //text (input) - child 2
-    const inputValue = document.getElementById("myInput").value;
+    const theValue = document.getElementById("myInput").value;
+    const inputValue = document.createElement('span');
+    inputValue.innerText = theValue;
+ 
     //inputValue.value = task;
     //inputValue.setAttribute('readonly', 'readonly');
     //inputValue.classList.add("inputValue");
     document.getElementById("myInput").value = "";
 
+    //making input text to be span element
+    
     if (inputValue === "") {
           return;
         }
@@ -67,7 +72,7 @@ function outerSubmit (){
     // Input and checkbox one div
     const theThings = document.createElement("div");
     theThings.appendChild(checkbox);
-    theThings.appendChild(document.createTextNode(inputValue));
+    theThings.appendChild(inputValue);
 
     //parent (one list)
     const goalDiv = document.createElement("div");
@@ -96,5 +101,6 @@ function outerSubmit (){
     deleteButton.addEventListener('click',function (e){
       eachList.removeChild(goalDiv);
     });
+
 });
 }
