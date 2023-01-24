@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function (event) {
+  const todos = JSON.parse(localStorage.getItem('todos'));
   outerDateGenerator(); //Success
   //outerInputArea(); // toggle success
   //outerSubmit();
@@ -31,8 +32,10 @@ function outerSubmit (){
     checkbox.type = "checkbox";
     checkbox.id = "checkbox"; //styling purpose
     
-    //text - child 2
+    //text (input) - child 2
     const inputValue = document.getElementById("myInput").value;
+    //inputValue.value = task;
+    //inputValue.setAttribute('readonly', 'readonly');
     //inputValue.classList.add("inputValue");
     document.getElementById("myInput").value = "";
 
@@ -46,6 +49,7 @@ function outerSubmit (){
     const editIcon = document.createElement('img');
     editIcon.src = '../icon-svg/icon_edit.svg';
     editButton.appendChild(editIcon);
+    
     
     //delete button
     const deleteButton = document.createElement('button');
@@ -70,42 +74,27 @@ function outerSubmit (){
     goalDiv.classList.add("goal");
 
     //appending child to parent
-    //goalDiv.appendChild(checkbox);
-    //goalDiv.appendChild(document.createTextNode(inputValue));
     goalDiv.appendChild(theThings);
     goalDiv.appendChild(actionBtn);
 
     const eachList = document.getElementById("goalList");
     eachList.appendChild(goalDiv);
-  });
+    
+    //EDIT - event listener
+    // editButton.addEventListener('click', (e) => {
+		// 	inputValue.removeAttribute('readonly');
+    //   inputValue.focus()
+    //   input.addEventListener('blur', (e) => {
+		// 		input.setAttribute('readonly', true);
+		// 		todo.content = e.target.value;
+		// 		localStorage.setItem('todos', JSON.stringify(todos));
+				
+		//   });
+    // });
+    
+    //DELETE - event listener (Success)
+    deleteButton.addEventListener('click',function (e){
+      eachList.removeChild(goalDiv);
+    });
+});
 }
-
-
-function submit(event) {
-    // Prevent the default form submission behavior
-    event.preventDefault();
-  
-    // Get the value of the input field
-    const inputValue = document.getElementById("myInput").value;
-  
-    // Clear the input field
-    document.getElementById("myInput").value = "";
-  
-    // Create a new div element for the goal
-    const goalDiv = document.createElement("div");
-    goalDiv.classList.add("goal");
-  
-    // Create a checkbox element for the goal
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    //checkbox.classList.add("checkbox");
-    checkbox.id = "checkbox";
-  
-    // Add the checkbox and input value to the goal div
-    goalDiv.appendChild(checkbox);
-    goalDiv.appendChild(document.createTextNode(inputValue));
-  
-    // Add the goal div to the goal list
-    document.getElementById("goalList").appendChild(goalDiv);
-}
-  
