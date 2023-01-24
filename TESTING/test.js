@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function (event) {
-  const todos = JSON.parse(localStorage.getItem('todos'));
   outerDateGenerator(); //Success
   //outerInputArea(); // toggle success
   //outerSubmit();
   outerSubmit(); // function success
+
 });
 
 
@@ -36,13 +36,12 @@ function outerSubmit (){
     const theValue = document.getElementById("myInput").value;
     const inputValue = document.createElement('span');
     inputValue.innerText = theValue;
+    inputValue.id = "theInputSpan"
  
-    //inputValue.value = task;
     //inputValue.setAttribute('readonly', 'readonly');
+
     //inputValue.classList.add("inputValue");
     document.getElementById("myInput").value = "";
-
-    //making input text to be span element
     
     if (inputValue === "") {
           return;
@@ -86,21 +85,23 @@ function outerSubmit (){
     eachList.appendChild(goalDiv);
     
     //EDIT - event listener
-    // editButton.addEventListener('click', (e) => {
-		// 	inputValue.removeAttribute('readonly');
-    //   inputValue.focus()
-    //   input.addEventListener('blur', (e) => {
-		// 		input.setAttribute('readonly', true);
-		// 		todo.content = e.target.value;
-		// 		localStorage.setItem('todos', JSON.stringify(todos));
-				
-		//   });
-    // });
-    
+    editButton.addEventListener('click', function (e)  {
+      inputValue.contentEditable = true;
+    });
+    editButton.addEventListener ('keypress',function(event){
+      if (event.keyCode === 13) { // user pressed "enter"
+        inputValue.contentEditable = false; // make the text not editable
+      }
+    })
+
+    //note = when clicked on edit button, it immediently direct the cursor to type the inputValue, and when i enter, it will save it 
+
     //DELETE - event listener (Success)
     deleteButton.addEventListener('click',function (e){
       eachList.removeChild(goalDiv);
     });
-
-});
-}
+  
+  });
+    
+    
+};
