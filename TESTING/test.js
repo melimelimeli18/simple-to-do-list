@@ -33,26 +33,42 @@ function outerSubmit (){
     checkbox.id = "checkbox"; //styling purpose
     
     //text (input) - child 2
+    
+    const inputHTML = document.getElementById("myInput");
     const theValue = document.getElementById("myInput").value;
     const inputValue  = document.createElement("input");
     inputValue.type = "text";
     inputValue.value = theValue;
-    //inputValue.appendChild(theValue);
-    //inputValue.innerText = theValue; 
     inputValue.classList.add("inputValue");
-    // const inputValue = document.createElement('span');
-    // inputValue.innerText = theValue;
-    // inputValue.classList.add("inputValue");
- 
     inputValue.contentEditable = "false";
+    document.getElementById("myInput").value = "";   
 
-    if (theValue === "") {
+    // function validateInput() {
+    //   inputHTML;
+    //   theValue;
+    //   if(theValue === ""){
+    //   inputHTML.style.borderColor = "red";
+    //   return;
+    // } else {
+    //   inputHTML.style.borderColor = "white";
+    // }
+    // }
+    // validateInput();
+
+    if(theValue === ""){
+      inputHTML.style.borderColor = "red";
       return;
+    } else {
+      inputHTML.style.borderColor = "white";
     }
-    //inputValue.classList.add("inputValue");
-    document.getElementById("myInput").value = "";
-    
-    
+    // if(theValue === ""){
+    //   inputHTML.style.borderColor = "red";
+    //   return;
+    // } else {
+    //   inputHTML.style.borderColor = "white";
+    // }
+
+
     //edit button 
     const editButton = document.createElement('button');
     editButton.classList.add('editButton');
@@ -90,7 +106,8 @@ function outerSubmit (){
     const eachList = document.getElementById("goalList");
     eachList.appendChild(goalDiv);
     
-    editButton.addEventListener('click', function (e)  {
+    // edit button toggle. SUCCESS
+    editButton.addEventListener('click', function editToggle (e)  {
       if (inputValue.contentEditable === "false") {
         editButton.innerText = "save";
         inputValue.contentEditable = "true";
@@ -110,6 +127,7 @@ function outerSubmit (){
       eachList.removeChild(goalDiv);
     });
      
+    // edit button submited??
   
   
   });  

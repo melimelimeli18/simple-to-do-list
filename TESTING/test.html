@@ -113,7 +113,9 @@
           border: 3px solid #FFFFFF;
           border-radius: 16px;
           padding: 0.7rem;
-          
+        }
+        #myInput .error {
+          border: 3px solid #da2424;
         }
         #myInput::placeholder {
           color: #8A8A8A;
@@ -121,6 +123,12 @@
         #myInput:focus {
           outline: none;
         }
+        /* .fillAlert :required {
+          border: 3px solid #da2424;
+        } */
+        /* #myInput :invalid:required {
+          border: 3px solid #da2424;
+        } */
       </style>
 
 </head>
@@ -150,14 +158,30 @@
           
     <!--layer 2  -->
     <div class="headline flex justify-between flex-col ">
+        <!-- Header -->
         <div class="header  text-white cursor-pointer">
             <p class="text-white text-3xl font-semibold">Things to do in <span id="date" class="underline decoration-solid"></span></p>
         </div>
+
+        <!-- input text -->
         <div>
           <form id="myForm" class=" pt-[1rem] mb-[1rem]"style="">
-            <input type="text" id="myInput" class="w-[100%]" placeholder="type here, ENTER to add new list">
+            <input type="text" id="myInput" class="w-[100%]" placeholder="type here, ENTER to add new list" oninput="validateInput()" >
           </form>
         </div>
+        <!-- <script>
+          function validateInput(element) {
+            const inputHTML = document.getElementById("myInput");
+            const theValue = document.getElementById("myInput").value;
+    
+      if(theValue === ""){
+      inputHTML.style.borderColor = "red";
+      return;
+    } else {
+      inputHTML.style.borderColor = "white";
+    }
+    }
+        </script> -->
     </div>
     
     <div id="todolist" class="bg-transparent overflow-y-auto">
