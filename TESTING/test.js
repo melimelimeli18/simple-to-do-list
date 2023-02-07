@@ -1,6 +1,5 @@
-// function todolist lisy
-//line through when clicked the checkbox
-//when clicked on text, it will add the change of the checkbox, and add the through style
+// Try to style with origin text button
+
 document.addEventListener("DOMContentLoaded", function (event) {
   outerDateGenerator(); //Success
   outerSubmit(); // function success
@@ -131,8 +130,8 @@ function outerSubmit (){
     inputValue.addEventListener("click", checkmark);
     function checkmark(){
       if(isChecked){
-        inputValue.style.textDecoration = "";
-        inputValue.style.color = "";
+        inputValue.style.textDecoration = "none";
+        inputValue.style.color = "black";
       }else {
         inputValue.style.textDecoration = "line-through";
         inputValue.style.color = "gray";
@@ -144,3 +143,4 @@ function outerSubmit (){
   });  
 };
 
+//Make the button be a webkit appeareance, and style it own ur self, so u can get a validation of checkbox, and u can add more style on InputValue
