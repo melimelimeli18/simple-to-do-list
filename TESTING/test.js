@@ -1,5 +1,5 @@
 // Try to style with origin text button
-
+// https://codepen.io/samstelr/pen/jOpRKoM
 document.addEventListener("DOMContentLoaded", function (event) {
   outerDateGenerator(); //Success
   outerSubmit(); // function success
@@ -30,16 +30,17 @@ function outerSubmit (){
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.id = "checkbox"; //styling purpose
-    
+    checkbox.class = "checkbox";
     
     //TEXT (input) 
-    
+    const Label =  document.createElement("label");
     const inputHTML = document.getElementById("myInput");
     const theValue = document.getElementById("myInput").value;
     const inputValue  = document.createElement("input");
     inputValue.type = "text";
     inputValue.value = theValue;
     inputValue.classList.add("inputValue");
+    Label.appendChild(inputValue);
 
       // inputValue.readOnly = true ;
       inputValue.setAttribute('readonly', 'readonly');
@@ -78,7 +79,7 @@ function outerSubmit (){
 
     //appending child to parent
     goalDiv.appendChild(checkbox);
-    goalDiv.appendChild(inputValue);
+    goalDiv.appendChild(Label);
     goalDiv.appendChild(actionBtn);
     
     const eachList = document.getElementById("goalList");
