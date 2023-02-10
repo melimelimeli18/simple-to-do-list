@@ -86,30 +86,53 @@
           /* default syle, when checkbox ga diapa2in */
         #checkbox,
         .checkboxContainer label::before{
-          content: '';
+          appearance : none;
+          /* content: ''; */
           width: 1.5rem;
           height: 1.5rem;
           border-radius: 15px;
-          margin-right: 5em;
-      /*     border: 4px solid gray; */
+          /* margin-right: 5em; */
           border-width: 4px;
           border-color :#B4B4B4;
           border-style: solid;
+          vertical-align: middle;
         }
         
-        /* #checkbox { 
-          margin-right: 0.7rem; /* 8px */
-          /* margin-left: 2rem; 8px
+
+        /*  */
+        /* #checkbox,.checkboxContainer + label::before{ 
+          appearance: none;
+          content: '';
+          margin-right: 0.7rem;
+          margin-left: 2rem;
           vertical-align: middle;
           width: 1.5rem;
           height: 1.5rem;
+          border-width: 4px;
+          border-color :#B4B4B4;
+          border-style: solid;
+          border-radius: 5px;
+        } 
+
+        #checkbox,.checkboxContainer input[type='checkbox']:checked + label::before {
+            content: '\2714';
+            background-color: #29ABE2;
+            color: white;
+            border-width: 4px;
+            border-color :#29ABE2;
+            border-style: solid;
         }  */
+
+
+        /*  */
+
 
         #checkbox,
         .checkboxContainer label:hover::before,
         .checkboxContainer input[type='checkbox']:hover + label::before {
             background-color: #B4B4B4;
         }
+
         #checkbox,
         .checkboxContainer input[type='checkbox']:disabled + label,
         .checkboxContainer input[type='checkbox']:disabled {

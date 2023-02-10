@@ -52,7 +52,7 @@ function outerSubmit (){
     Label.appendChild(inputValue);
 
     const checkboxContainer = document.createElement('div')
-    checkboxContainer.class = "checkboxContainer";
+    checkboxContainer.classList.add('checkboxContainer');
 
     checkboxContainer.appendChild(checkbox);
     checkboxContainer.appendChild(Label);
