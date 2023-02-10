@@ -1,5 +1,12 @@
 // Try to style with origin text button
 // https://codepen.io/samstelr/pen/jOpRKoM
+
+// add the class to the label.
+// on css, try to change the input value into that (css label)
+// try to adding attribute, for the checkbox, inside the for is checkbox id
+
+// try to fix checked linethrough
+
 document.addEventListener("DOMContentLoaded", function (event) {
   outerDateGenerator(); //Success
   outerSubmit(); // function success
@@ -34,13 +41,21 @@ function outerSubmit (){
     
     //TEXT (input) 
     const Label =  document.createElement("label");
+    Label.htmlFor = "checkbox";
     const inputHTML = document.getElementById("myInput");
     const theValue = document.getElementById("myInput").value;
     const inputValue  = document.createElement("input");
     inputValue.type = "text";
     inputValue.value = theValue;
     inputValue.classList.add("inputValue");
+
     Label.appendChild(inputValue);
+
+    const checkboxContainer = document.createElement('div')
+    checkboxContainer.class = "checkboxContainer";
+
+    checkboxContainer.appendChild(checkbox);
+    checkboxContainer.appendChild(Label);
 
       // inputValue.readOnly = true ;
       inputValue.setAttribute('readonly', 'readonly');
@@ -78,8 +93,9 @@ function outerSubmit (){
     goalDiv.classList.add("goal");
 
     //appending child to parent
-    goalDiv.appendChild(checkbox);
-    goalDiv.appendChild(Label);
+    // goalDiv.appendChild(checkbox);
+    // goalDiv.appendChild(Label);
+    goalDiv.appendChild(checkboxContainer);
     goalDiv.appendChild(actionBtn);
     
     const eachList = document.getElementById("goalList");
@@ -125,20 +141,20 @@ function outerSubmit (){
     //   }
     // })
 
-    const isChecked = false;
+    // const isChecked = false;
 
-    checkbox.addEventListener("click", checkmark);
-    inputValue.addEventListener("click", checkmark);
-    function checkmark(){
-      if(isChecked){
-        inputValue.style.textDecoration = "none";
-        inputValue.style.color = "black";
-      }else {
-        inputValue.style.textDecoration = "line-through";
-        inputValue.style.color = "gray";
-      }
+    // checkbox.addEventListener("click", checkmark);
+    // inputValue.addEventListener("click", checkmark);
+    // function checkmark(){
+    //   if(isChecked){
+    //     inputValue.style.textDecoration = "none";
+    //     inputValue.style.color = "black";
+    //   }else {
+    //     inputValue.style.textDecoration = "line-through";
+    //     inputValue.style.color = "gray";
+    //   }
      
-    }
+    // }
 
 
   });  

@@ -82,34 +82,50 @@
         }
 
         /* CHILD 1 - CHECKBOX */
-        input[type="checkbox"]{
 
-
-          }
-          /* unchecked */
-          input[type="checkbox"]::before {
-          display: inline-block;
-          width: 24px;
-          content: '\002714';
-
-        
+          /* default syle, when checkbox ga diapa2in */
+        #checkbox,
+        .checkboxContainer label::before{
+          content: '';
+          width: 1.5rem;
+          height: 1.5rem;
+          border-radius: 15px;
+          margin-right: 5em;
+      /*     border: 4px solid gray; */
+          border-width: 4px;
+          border-color :#B4B4B4;
+          border-style: solid;
         }
-            /* content: url("../icon-svg/icon_unchecked.svg");  */
         
-          /* checked */
-          input[type="checkbox"]:checked {
-            width: 24px;
-            height: 24px;
-            background-repeat: no-repeat;
-            background-position: center;
-            /* content: url("../icon-svg/icon_checkedd.svg"); */
-            /* margin-top:0.2rem; */
-            /* padding-bottom:0.5rem; */
-          }
-        #checkbox{
-            padding-right: 0.7rem; /* 8px */
-            padding-left: 2rem; /* 8px */
-            vertical-align: middle;
+        /* #checkbox { 
+          margin-right: 0.7rem; /* 8px */
+          /* margin-left: 2rem; 8px
+          vertical-align: middle;
+          width: 1.5rem;
+          height: 1.5rem;
+        }  */
+
+        #checkbox,
+        .checkboxContainer label:hover::before,
+        .checkboxContainer input[type='checkbox']:hover + label::before {
+            background-color: #B4B4B4;
+        }
+        #checkbox,
+        .checkboxContainer input[type='checkbox']:disabled + label,
+        .checkboxContainer input[type='checkbox']:disabled {
+            color: #aaa;
+            cursor: default;
+        }
+
+          /* after the checkbox be clicked */
+          #checkbox,
+        .checkboxContainer input[type='checkbox']:checked + label::before {
+            content: '\002714';
+            background-color: #29ABE2;
+            color: white;
+            border-width: 4px;
+            border-color :#29ABE2;
+            border-style: solid;
         }
 
         /* CHILD 2 - INPUT TYPE TEXT VALUE */        
@@ -179,19 +195,6 @@
             <input type="text" id="myInput" class="w-[100%]" placeholder="type here, ENTER to add new list" oninput="validateInput()" >
           </form>
         </div>
-        <!-- <script>
-          function validateInput(element) {
-            const inputHTML = document.getElementById("myInput");
-            const theValue = document.getElementById("myInput").value;
-    
-      if(theValue === ""){
-      inputHTML.style.borderColor = "red";
-      return;
-    } else {
-      inputHTML.style.borderColor = "white";
-    }
-    }
-        </script> -->
     </div>
     
     <div id="todolist" class="bg-transparent overflow-y-auto">
