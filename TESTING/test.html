@@ -80,7 +80,12 @@
             padding-top: 0.5rem;
             
         }
-
+        
+        .checkboxContainer {
+          display :flex;
+          flex-direction: row;
+          width :100%;
+        }
         /* CHILD 1 - CHECKBOX */
         .custom-checkbox {
           cursor: pointer;
@@ -89,40 +94,52 @@
           margin: 10px 0;
         }
 
-        .custom-checkbox .label {
-          font-size: 1.2em;
-          margin: 0 10px;
+        .custom-checkbox {
+          margin-left: 1rem;
+        }
+        .label{
+          margin-left: 1rem;
+          
+        }
+        .label:focus{
+          outline:none;
+        }
+        .label + .inputValue {
+          vertical-align: middle;
+          width: fit-content;
+          flex-grow: 1;
         }
 
         .custom-checkbox .checkmark {
-          width: 35px;
-          height: 35px;
-          border: 2px solid #222;
+          width: 2rem;
+          height: 2rem;
+          border: 2px solid #B4B4B4;
           display: inline-block;
-          border-radius: 15px;
-          background: #222 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+          border-radius: 10px;
+          background: #29ABE2 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
           transition: background-size 0.2s ease;
         }
-
-        .custom-checkbox input:checked + .checkmark {
+       
+        .custom-checkbox input[type="checkbox"]:checked + .checkmark {
           background-size: 60%;
           transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
         }
 
-        .custom-checkbox input {
+        .custom-checkbox input[type="checkbox"] {
           display: none;
         }
          
 
         /* CHILD 2 - INPUT TYPE TEXT VALUE */        
-        /* .inputValue {
+        /* .inputValue .label{
           vertical-align: middle;
           width: fit-content;
           flex-grow: 1;
-        } */
+        }
+        */
         .inputValue:focus {
           outline: none;
-        }
+        } 
         /* CHILD 3 - ACTION BUTTON */
         .actionBtn {
           display :flex;

@@ -54,13 +54,15 @@ function outerSubmit (){
     inputSpan.classList.add("label");
 
     //TEXT (input) 
-    const inputHTML = document.getElementById("myInput");
+    const inputHTML = document.getElementById("myInput"); //box for input
     const theValue = document.getElementById("myInput").value;
     const inputValue  = document.createElement("input");
     inputValue.type = "text";
     inputValue.value = theValue;
     inputValue.classList.add("inputValue");
 
+    inputValue.setAttribute('readonly', 'readonly');
+    document.getElementById("myInput").value = "";   
     inputSpan.appendChild(inputValue);
     // Append element to Label Tab Index
     label.appendChild(checkbox);
@@ -73,9 +75,7 @@ function outerSubmit (){
 
     checkboxContainer.appendChild(label);
 
-      // inputValue.readOnly = true ;
-      inputValue.setAttribute('readonly', 'readonly');
-      document.getElementById("myInput").value = "";   
+      
 
     if(theValue === ""){
       inputHTML.style.borderColor = "red";
