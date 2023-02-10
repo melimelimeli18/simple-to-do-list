@@ -82,81 +82,44 @@
         }
 
         /* CHILD 1 - CHECKBOX */
+        .custom-checkbox {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+        }
 
-          /* default syle, when checkbox ga diapa2in */
-        #checkbox,
-        .checkboxContainer label::before{
-          appearance : none;
-          /* content: ''; */
-          width: 1.5rem;
-          height: 1.5rem;
+        .custom-checkbox .label {
+          font-size: 1.2em;
+          margin: 0 10px;
+        }
+
+        .custom-checkbox .checkmark {
+          width: 35px;
+          height: 35px;
+          border: 2px solid #222;
+          display: inline-block;
           border-radius: 15px;
-          /* margin-right: 5em; */
-          border-width: 4px;
-          border-color :#B4B4B4;
-          border-style: solid;
-          vertical-align: middle;
-        }
-        
-
-        /*  */
-        /* #checkbox,.checkboxContainer + label::before{ 
-          appearance: none;
-          content: '';
-          margin-right: 0.7rem;
-          margin-left: 2rem;
-          vertical-align: middle;
-          width: 1.5rem;
-          height: 1.5rem;
-          border-width: 4px;
-          border-color :#B4B4B4;
-          border-style: solid;
-          border-radius: 5px;
-        } 
-
-        #checkbox,.checkboxContainer input[type='checkbox']:checked + label::before {
-            content: '\2714';
-            background-color: #29ABE2;
-            color: white;
-            border-width: 4px;
-            border-color :#29ABE2;
-            border-style: solid;
-        }  */
-
-
-        /*  */
-
-
-        #checkbox,
-        .checkboxContainer label:hover::before,
-        .checkboxContainer input[type='checkbox']:hover + label::before {
-            background-color: #B4B4B4;
+          background: #222 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+          transition: background-size 0.2s ease;
         }
 
-        #checkbox,
-        .checkboxContainer input[type='checkbox']:disabled + label,
-        .checkboxContainer input[type='checkbox']:disabled {
-            color: #aaa;
-            cursor: default;
+        .custom-checkbox input:checked + .checkmark {
+          background-size: 60%;
+          transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
         }
 
-          /* after the checkbox be clicked */
-          #checkbox,
-        .checkboxContainer input[type='checkbox']:checked + label::before {
-            content: '\002714';
-            background-color: #29ABE2;
-            color: white;
-            border-width: 4px;
-            border-color :#29ABE2;
-            border-style: solid;
+        .custom-checkbox input {
+          display: none;
         }
+         
 
         /* CHILD 2 - INPUT TYPE TEXT VALUE */        
-        .inputValue {
+        /* .inputValue {
           vertical-align: middle;
           width: fit-content;
           flex-grow: 1;
-        }
+        } */
         .inputValue:focus {
           outline: none;
         }

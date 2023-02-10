@@ -33,15 +33,27 @@ function outerSubmit (){
     
     event.preventDefault();
     
+    // DIV parent for checkbox and Input
+    // Label Tab Index
+    const label =  document.createElement("label");
+    label.classList.add("custom-checkbox");
+    label.setAttribute("tab-index", "0");
+    label.setAttribute("aria-label", "Checkbox Label")
+    
     //checkbox 
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
-    checkbox.id = "checkbox"; //styling purpose
-    checkbox.class = "checkbox";
-    
+    checkbox.setAttribute("checked", "");
+
+    // span checkmark
+    const checkmark = document.createElement("span");
+    checkmark.classList.add("checkmark");
+
+    // span for input text
+    const inputSpan = document.createElement("span");
+    inputSpan.classList.add("label");
+
     //TEXT (input) 
-    const Label =  document.createElement("label");
-    Label.htmlFor = "checkbox";
     const inputHTML = document.getElementById("myInput");
     const theValue = document.getElementById("myInput").value;
     const inputValue  = document.createElement("input");
@@ -49,13 +61,17 @@ function outerSubmit (){
     inputValue.value = theValue;
     inputValue.classList.add("inputValue");
 
-    Label.appendChild(inputValue);
+    inputSpan.appendChild(inputValue);
+    // Append element to Label Tab Index
+    label.appendChild(checkbox);
+    label.appendChild(checkmark);
+    label.appendChild(inputSpan);
 
+    // Parent DIV Checkbox Container
     const checkboxContainer = document.createElement('div')
     checkboxContainer.classList.add('checkboxContainer');
 
-    checkboxContainer.appendChild(checkbox);
-    checkboxContainer.appendChild(Label);
+    checkboxContainer.appendChild(label);
 
       // inputValue.readOnly = true ;
       inputValue.setAttribute('readonly', 'readonly');
