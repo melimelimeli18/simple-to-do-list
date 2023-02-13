@@ -26,6 +26,9 @@
             }
           
       </script>
+    <!--
+      1. Bikin panjang input nya sampe akhir dari List
+     -->
 
       <style>
         *{margin: 0px; padding: 0px;}
@@ -113,16 +116,17 @@
         .custom-checkbox .checkmark {
           width: 2rem;
           height: 2rem;
-          border: 2px solid #B4B4B4;
+          border: 3px solid #B4B4B4;
           display: inline-block;
           border-radius: 10px;
-          background: #29ABE2 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+          background: #29ABE2 url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat; 
           transition: background-size 0.2s ease;
         }
-       
+
         .custom-checkbox input[type="checkbox"]:checked + .checkmark {
           background-size: 60%;
           transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
+          border: 3px solid #29ABE2;
         }
 
         .custom-checkbox input[type="checkbox"] {

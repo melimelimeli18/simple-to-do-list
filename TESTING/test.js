@@ -44,6 +44,7 @@ function outerSubmit (){
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.setAttribute("checked", "");
+    checkbox.checked = false;
 
     // span checkmark
     const checkmark = document.createElement("span");
