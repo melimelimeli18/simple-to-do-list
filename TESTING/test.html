@@ -28,6 +28,10 @@
       </script>
     <!--
       1. Bikin panjang input nya sampe akhir dari List
+      2. Edit button.
+        pas submit input nya pake enter, bisa ngedit lagi
+        pas pencet manual dari icon, ngga bisa edit
+        tolong bikin bisa diedit lagi dua duanya
      -->
 
       <style>
@@ -74,7 +78,7 @@
             margin-top:0.5rem;
             margin-bottom:0.5rem;
             display: flex;
-            
+            width: 100%;
             background: #FFFFFF;
             border-radius: 0.5rem; /* 8px */
             overflow: hidden;
@@ -87,7 +91,9 @@
         .checkboxContainer {
           display :flex;
           flex-direction: row;
-          width :100%;
+          /* width :100%; ngga ngaruh sama inputnya*/
+          /* flex-grow: 1; ini cuma bikin ampe mentok doang
+          engga ngaruh sama input valuenya */
         }
         /* CHILD 1 - CHECKBOX */
         .custom-checkbox {
@@ -107,11 +113,7 @@
         .label:focus{
           outline:none;
         }
-        .label + .inputValue {
-          vertical-align: middle;
-          width: fit-content;
-          flex-grow: 1;
-        }
+        
 
         .custom-checkbox .checkmark {
           width: 2rem;
@@ -141,6 +143,18 @@
           flex-grow: 1;
         }
         */
+        .label + .inputValue {
+          vertical-align: middle;
+          width: fit-content;
+          flex-grow: 1;
+          display:flex;
+          cursor: pointer;
+          width: fit-content;
+        }
+        .inputValue{
+          
+          /* flex-grow: 1; */
+        }
         .inputValue:focus {
           outline: none;
         } 
@@ -148,20 +162,26 @@
         .actionBtn {
           display :flex;
           flex-direction: row;
-          padding-right: 2rem;
-          font-size: 12px;
+          vertical-align: middle;
+          align-items: center;
           justify-content: flex-end;
         }
-
         .editButton {
-          /* padding-right: 0.7rem; */
-           padding-left: 0.7rem; /*padding to the input text */
+          width: 2rem;
+          height: 2rem;
+          margin-right: 0.7rem; /*padding to the input text */
+          margin-left:0.7rem; /* jarak ke input value (kiri) */
         }
         
         .deleteButton {
-          padding-left: 0.7rem;
+          width: 2rem;
+          height: 2rem;
+          margin-right: 0.7rem;
         }
 
+        .div {
+          flex-grow: 1;
+        }
       </style>
 
 </head>

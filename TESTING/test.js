@@ -112,7 +112,12 @@ function outerSubmit (){
     //appending child to parent
     // goalDiv.appendChild(checkbox);
     // goalDiv.appendChild(Label);
+
+    // the sake of margin
+    const div = document.createElement('div');
+    div.classList.add("div")
     goalDiv.appendChild(checkboxContainer);
+    goalDiv.appendChild(div);
     goalDiv.appendChild(actionBtn);
     
     const eachList = document.getElementById("goalList");
