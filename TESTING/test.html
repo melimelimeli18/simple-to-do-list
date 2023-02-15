@@ -26,7 +26,7 @@
             }
           
       </script>
-    <!--
+    <!-- Hadeuh rapihin dulu aje deh mendingan, JS udh bener, tinggal CSS nya nieh
       1. Bikin panjang input nya sampe akhir dari List
       2. Edit button.
         pas submit input nya pake enter, bisa ngedit lagi
@@ -85,13 +85,16 @@
             transition: height;
             padding-bottom: 0.5rem;
             padding-top: 0.5rem;
+            box-sizing: border-box;
             
         }
         
         .checkboxContainer {
           display :flex;
           flex-direction: row;
-          /* width :100%; ngga ngaruh sama inputnya*/
+          /* flex-grow: 4; */
+          /* max-width: 100%; */
+          /* width :100%; */
           /* flex-grow: 1; ini cuma bikin ampe mentok doang
           engga ngaruh sama input valuenya */
         }
@@ -108,12 +111,12 @@
         }
         .label{
           margin-left: 1rem;
-          
+          /* SPAN yang isinya  */
         }
         .label:focus{
           outline:none;
         }
-        
+
 
         .custom-checkbox .checkmark {
           width: 2rem;
@@ -143,17 +146,19 @@
           flex-grow: 1;
         }
         */
-        .label + .inputValue {
+        .label .inputValue + input[type="checkbox"]{
+          display:flex;
           vertical-align: middle;
           width: fit-content;
-          flex-grow: 1;
+          flex-grow: 3;
           display:flex;
           cursor: pointer;
-          width: fit-content;
+          
         }
         .inputValue{
-          
+          width:100%;
           /* flex-grow: 1; */
+          /* ini pake vw, pixel, bisa tapi persen ngga bisa wwww */
         }
         .inputValue:focus {
           outline: none;
@@ -162,9 +167,12 @@
         .actionBtn {
           display :flex;
           flex-direction: row;
-          vertical-align: middle;
+
           align-items: center;
           justify-content: flex-end;
+          flex-grow: 1;
+
+          /* JADI Flexgrow sama flexend itu make &&logic, flex end ngga bisa berpindah paling samping tanpa flex grow. */
         }
         .editButton {
           width: 2rem;
@@ -176,12 +184,12 @@
         .deleteButton {
           width: 2rem;
           height: 2rem;
-          margin-right: 0.7rem;
+         margin-right: 0.7rem; /* padding to edit button  */
         }
 
-        .div {
+        /* .div {
           flex-grow: 1;
-        }
+        } */
       </style>
 
 </head>
