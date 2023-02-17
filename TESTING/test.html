@@ -27,13 +27,21 @@
           
       </script>
     <!-- 
-      2. Edit button.
-        pas submit input nya pake enter, bisa ngedit lagi
-        pas pencet manual dari icon, ngga bisa edit
-        tolong bikin bisa diedit lagi dua duanya
+      Personal Note : 
+      Name of function mustn't same with variable, it cause an error!
+      If the Javascript can't work suddenly, check the console, there's is a noftification&description in there
 
-        First click = berfungsi dengan normal
-        Second click = readable attribute tetap hilang, tapi tidak berubah ke save, dan tidak ke select.
+      1. Ketika mencet di input. Input text akan ke linethrough dan menjadi abu-abu, dan checkbox ke centang
+
+      Step = 
+      a. pisahin label yang ada menjadi 2 label, 1 label buat checkbox, 1 label buat input
+      why? karena for and id tidak bekerja apabila ada label yg ditimpa2
+
+      Case : sudah memisahkan labelnya, dan memeriksa for dan id. dan itu sama semua tetep ga bikin checkbox nya 
+      ke checked. Bahkan chatGPT sudah angkat tangan, dan terus bilang itu bisa
+
+      Solution : Jika cara manual tidak bisa, coba cara, memakai event listner click, lalu ngubah checkbox checked
+      nya secara manual
      -->
 
       <style>
@@ -103,11 +111,9 @@
           /* Checkbox - 1th Child From checboxContainer */
             .custom-checkbox {
               cursor: pointer;
-              display: flex;
               align-items: center;
               margin: 10px 0;
               margin-left: 1rem;
-              width: 100%;
             }
           /* Checkmark - 2th Child From checboxContainer (Checkmark)*/ 
             .custom-checkbox .checkmark {
@@ -130,6 +136,8 @@
 
           /*Label/Input Value- 3th Child of CheckboxContainer */
             .label{
+              display: flex;
+              justify-content: center;
               width: 100%;
               margin-left: 1rem;
               /* SPAN yang isinya  */
@@ -143,10 +151,11 @@
               width: fit-content;
               flex-grow: 3;
               display:flex;
-              cursor: pointer;
             }
             .inputValue{
               width:100%;
+              cursor: pointer;
+              /* ini ngaruh buat ngedit style */
               /* flex-grow: 1; */
               /* ini pake vw, pixel, bisa tapi persen ngga bisa wwww */
             }
@@ -176,10 +185,6 @@
           height: 2rem;
          margin-right: 0.7rem; /* padding to edit button  */
         }
-
-        /* .div {
-          flex-grow: 1;
-        } */
       </style>
 
 </head>

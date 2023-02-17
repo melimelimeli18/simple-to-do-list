@@ -34,14 +34,19 @@ function outerSubmit (){
     event.preventDefault();
     
     // DIV parent for checkbox and Input
+
     // Label Tab Index
-    const label =  document.createElement("label");
-    label.classList.add("custom-checkbox");
-    label.setAttribute("tab-index", "0");
-    label.setAttribute("aria-label", "Checkbox Label")
+    const customCheckbox =  document.createElement("label");
+    customCheckbox.classList.add("custom-checkbox");
+    customCheckbox.setAttribute("tab-index", "0");
+    customCheckbox.setAttribute("aria-label", "Checkbox Label")
+    // customCheckbox.htmlFor="checkbox";
+    customCheckbox.setAttribute('for', 'checkbox');
     
     //checkbox 
     const checkbox = document.createElement("input");
+    // checkbox.id = "checkbox";
+    checkbox.setAttribute("id","checkbox")
     checkbox.type = "checkbox";
     checkbox.setAttribute("checked", "");
     checkbox.checked = false;
@@ -51,8 +56,10 @@ function outerSubmit (){
     checkmark.classList.add("checkmark");
 
     // span for input text
-    const inputSpan = document.createElement("span");
-    inputSpan.classList.add("label");
+    const label = document.createElement("label");
+    label.classList.add("label");
+    // label.htmlFor = 'checkbox';
+    label.setAttribute('for', 'checkbox');
 
     //TEXT (input) 
     const inputHTML = document.getElementById("myInput"); //box for input
@@ -61,22 +68,21 @@ function outerSubmit (){
     inputValue.type = "text";
     inputValue.value = theValue;
     inputValue.classList.add("inputValue");
-
     inputValue.setAttribute('readonly', 'readonly');
+
     document.getElementById("myInput").value = "";   
-    inputSpan.appendChild(inputValue);
+    label.appendChild(inputValue);
+
     // Append element to Label Tab Index
-    label.appendChild(checkbox);
-    label.appendChild(checkmark);
-    label.appendChild(inputSpan);
+    customCheckbox.appendChild(checkbox);
+    customCheckbox.appendChild(checkmark);
 
     // Parent DIV Checkbox Container
     const checkboxContainer = document.createElement('div')
     checkboxContainer.classList.add('checkboxContainer');
 
+    checkboxContainer.appendChild(customCheckbox);
     checkboxContainer.appendChild(label);
-
-      
 
     if(theValue === ""){
       inputHTML.style.borderColor = "red";
@@ -110,22 +116,12 @@ function outerSubmit (){
     //parent (one list)
     const goalDiv = document.createElement("div");
     goalDiv.classList.add("goal");
-
-    //appending child to parent
-    // goalDiv.appendChild(checkbox);
-    // goalDiv.appendChild(Label);
-
-    // the sake of margin
-    const div = document.createElement('div');
-    div.classList.add("div")
     goalDiv.appendChild(checkboxContainer);
-    goalDiv.appendChild(div);
     goalDiv.appendChild(actionBtn);
     
     const eachList = document.getElementById("goalList");
     eachList.appendChild(goalDiv);
  
-    
     // EDIT button toggle
     editButton.addEventListener('click', function readable(e)  {
       if (inputValue.readOnly === true) {
@@ -155,31 +151,43 @@ function outerSubmit (){
       eachList.removeChild(goalDiv);
     });
 
-    // checkbox.addEventListener ("clicked", function lineThrough(){
-    //   if (checkbox.checked) {
-    //     inputValue.style.textDecoration = "line-through";
-    //     inputValue.style.color = "gray";    
-    //   }else{
-    //     inputValue.style.textDecoration = "none";
-    //     inputValue.style.color = "black";
-    //   }
-    // })
+    // LINE THROIGH FUNCTION
+
+    const isChecked = true;
+    const noChecked = false;
+
+
+    checkbox.addEventListener ("click", function lineThrough(){
+      if (checkbox.checked) {
+        inputValue.style.textDecoration = "line-through";
+        inputValue.style.color = "gray";  
+        return isChecked;  
+      }else{
+        inputValue.style.textDecoration = "none";
+        inputValue.style.color = "black";
+        return noChecked;
+        // checkbox.checked = false;
+      }
+    })
 
     // const isChecked = false;
+    // const checked = true;
 
-    // checkbox.addEventListener("click", checkmark);
-    // inputValue.addEventListener("click", checkmark);
-    // function checkmark(){
-    //   if(isChecked){
+    // checkbox.addEventListener("click", checkedCheckbox);
+    // inputValue.addEventListener("click", checkedCheckbox);
+    // function checkedCheckbox(){
+    //   if(checkbox.checked = true){
     //     inputValue.style.textDecoration = "none";
     //     inputValue.style.color = "black";
-    //   }else {
+    //     // checkbox.checked = false;
+    //   }else{
     //     inputValue.style.textDecoration = "line-through";
     //     inputValue.style.color = "gray";
-    //   }
-     
+    //     // checkbox.checked = true;
+    //   }  
     // }
-
+    
+    // checkboxnya entah kenapa coba bisa nge checked sekali gara gara function iniw kwkkwk
 
   });  
 };
