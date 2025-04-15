@@ -57,14 +57,14 @@ function outerSubmit (){
     const editButton = document.createElement('button');
     editButton.classList.add('editButton');
     const editIcon = document.createElement('img');
-    editIcon.src = '../icon-svg/icon_edit.svg';
+    editIcon.src = 'icon-svg/icon_edit.svg';
     editButton.appendChild(editIcon);
     
     //delete button
     const deleteButton = document.createElement('button');
     deleteButton.classList.add ('deleteButton');
     const deleteIcon = document.createElement('img');
-    deleteIcon.src = '../icon-svg/icon_delete.svg';
+    deleteIcon.src = 'icon-svg/icon_delete.svg';
     deleteButton.appendChild(deleteIcon);
     
     //edit button & delete button parent

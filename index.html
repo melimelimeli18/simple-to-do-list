@@ -4,71 +4,187 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
+    <title>To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="index.css"> -->
+    <script src="script.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio"></script>
+    
+    
+
     <script>
         tailwind.config = {
           theme: {
             textColors: {
                 //this can be custom, up to yourself
                 white: "#fff",
-                black: "#000"
-                },
-            extend: {
-                spacing: {
-                    '8xl': '96rem',
-                    '9xl': '128rem',
+                black: "#000",
                 }
-              },
+              }
             }
-          }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            /* digunain kalo pengen custom style class. misalkan bg warna 33333, 
-            maka kamu defined classnya. 
-            
-            .section-bg {
-                bg-white
-            }
-            lalu di sectionnya tinggal : 
-            <div class="bg-white"></div>
-            */ 
-            .text-5xl {
-                font-size: 3rem; /* 48px */
-                line-height: 1;
-            }
+          
+      </script>
+
+      <style>
+        *{margin: 0px; padding: 0px;}
+        html { 
+          font-size: 16px; 
         }
-    </style>
+        body{
+          font-family: 'Rubik', sans-serif;
+        }
+        /* TOP ICONS */
+        #switch-toggle :focus {
+          outline: none;
+        }
+        /* LAYER 1 - HEADING */
+        .header{
+          font-weight: 500;
+        }
+        /* LAYER 2 - TEXT TO INPUT */
+        #myInput {
+          -webkit-appearance: none;  
+          background: rgba(255, 255, 255, 0.37);
+          border: 3px solid #FFFFFF;
+          border-radius: 16px;
+          padding: 0.7rem;
+        }
+          #myInput .error {
+            border: 3px solid #da2424;
+          }
+          #myInput::placeholder {
+            color: #8A8A8A;
+          }
+          #myInput:focus {
+            outline: none;
+          }
+        /* PARENT OF LIST */
+        #goalList {
+          margin-top: 1rem;
+          font-weight: 400;
+        }
+
+        /* PARENT */
+        .goal {
+            margin-top:0.5rem;
+            margin-bottom:0.5rem;
+            display: flex;
+            
+            background: #FFFFFF;
+            border-radius: 0.5rem; /* 8px */
+            overflow: hidden;
+            transition: height;
+            padding-bottom: 0.5rem;
+            padding-top: 0.5rem;
+            
+        }
+
+        /* CHILD 1 - CHECKBOX */
+        input[type="checkbox"]{
+            -webkit-appearance: none;  
+          }
+          /* unchecked */
+          input[type="checkbox"]::before {
+            content: url("icon-svg/icon_unchecked.svg"); 
+          }
+          /* checked */
+          input[type="checkbox"]:checked {
+              content: url("icon-svg/icon_checkedd.svg");
+              /* margin-top:0.2rem; */
+              padding-bottom:0.5rem;
+          }
+        #checkbox{
+            padding-right: 0.7rem; /* 8px */
+            padding-left: 2rem; /* 8px */
+            vertical-align: middle;
+        }
+
+        /* CHILD 2 - INPUT TYPE TEXT VALUE */        
+        .inputValue {
+          vertical-align: middle;
+          width: fit-content;
+          flex-grow: 1;
+        }
+        .inputValue:focus {
+          outline: none;
+        }
+        /* CHILD 3 - ACTION BUTTON */
+        .actionBtn {
+          display :flex;
+          flex-direction: row;
+          padding-right: 2rem;
+          font-size: 12px;
+          justify-content: flex-end;
+        }
+
+        .editButton {
+          /* padding-right: 0.7rem; */
+           padding-left: 0.7rem; /*padding to the input text */
+        }
+        
+        .deleteButton {
+          padding-left: 0.7rem;
+        }
+
+      </style>
+
 </head>
-<body class="bg-[#333333] px-14 py-16 ">
-    <div class="bagian-atas flex justify-between">
-        <div class="header text-3xl font-semibold text-white">
-            <p class="text-white">Things to do in <span id="date" class="underline decoration-solid"></span></p>
+<body class="bg-gradient-to-r from-[#A2B2D9] to-[#152859] px-10 py-16 ">
+
+    <!-- layer 1 -->
+    <div class="flex justify-between mb-[3rem]">
+      <!-- top icon -->
+        <div class="icon flex ">
+          <img class="w-[1.5rem] h-[1.5rem] mr-[0.7rem]"src="icon-svg/icon_history.svg" alt="">
+          <img class="w-[1.5rem] h-[1.5rem]"src="icon-svg/icon_trashbin.svg" alt="">
+        </div>
+      <!-- switch toggle -->
+        <div class="flex middle">
+          <span class="pr-2 text-[#AEB9D7]">light</span>
+          <div>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input id="switch-toggle" type="checkbox" value="" class="sr-only peer" checked>
+              <div class="w-11 h-6 bg-gray-200 rounded-full peer  dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+              <!-- atas ini buat ganti ke setelah di checked -->
+              <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300"></span>
+            </label>
+          </div>
+          <span class="text-[#AEB9D7]">dark</span>
+        </div>
+    </div>  
+          
+    <!--layer 2  -->
+    <div class="headline flex justify-between flex-col ">
+        <!-- Header -->
+        <div class="header  text-white cursor-pointer">
+            <p class="text-white text-3xl font-semibold">Things to do in <span id="date" class="underline decoration-solid"></span></p>
         </div>
 
-        <div class="button">
-            <div class="delete-button text-[1rem]  text-white bg-[#FD5252] px-9 py-1 rounded-full item-end align-bottom">
-                <p class="item-center">delete</p>     
-            </div>
+        <!-- input text -->
+        <div>
+          <form id="myForm" class=" pt-[1rem] mb-[1rem]"style="">
+            <input type="text" id="myInput" class="w-[100%]" placeholder="type here, ENTER to add new list" oninput="validateInput()" >
+          </form>
         </div>
+        <!-- <script>
+          function validateInput(element) {
+            const inputHTML = document.getElementById("myInput");
+            const theValue = document.getElementById("myInput").value;
+    
+      if(theValue === ""){
+      inputHTML.style.borderColor = "red";
+      return;
+    } else {
+      inputHTML.style.borderColor = "white";
+    }
+    }
+        </script> -->
     </div>
     
-    <div id="todolist" class="bg-[#ffffff] my-12 rounded-lg h-[95vw] overflow-scroll">
-      <div id="create" class="flex px-8 pt-8">
-        <img src="../icon-svg/icon_plus_.svg" class="h-6 w-6 align-middle item-center pr-2">
-        <p class="cursor-pointer text-[1rem] text-[#A0A0A0]">Create New List To Do</p>  
-      </div>
-
-      <form id="myForm" class=" px-8 pt-3">
-        <input type="text" id="myInput" class="" placeholder="Type Text Here">
-      </form>
-      
-      <div id="goalList" class="mh-[8px] pt-3 box-border table"></div>
+    <div id="todolist" class="bg-transparent overflow-y-auto">
+      <div id="goalList" class="mh-[8px] "></div>
     </div>
-    <script src="index.js"></script>
 </body>
 </html>
